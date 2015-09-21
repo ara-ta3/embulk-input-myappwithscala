@@ -2,5 +2,6 @@ in:
     type: myappwithscala
     option1: 1
     option2: example2
+    columns: []
 out:
     type: stdout

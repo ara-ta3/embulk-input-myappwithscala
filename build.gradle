@@ -15,25 +15,13 @@ configurations {
 version = "0.1.0"
 
 dependencies {
+    compile "org.scala-lang:scala-library:2.11.6"
     compile  "org.embulk:embulk-core:0.7.4"
-    compile 'org.scala-lang:scala-library:2.11.6'
     provided "org.embulk:embulk-core:0.7.4"
     // compile "YOUR_JAR_DEPENDENCY_GROUP:YOUR_JAR_DEPENDENCY_MODULE:YOUR_JAR_DEPENDENCY_VERSION"
     testCompile "junit:junit:4.+"
     testCompile 'org.scalatest:scalatest_2.11:2.2.4'
     testRuntime 'org.scala-lang.modules:scala-xml_2.11:1.0.3'
-}
-
-compileScala {
-    scalaCompileOptions.useCompileDaemon = false
-}
-
-
-tasks.withType(ScalaCompile) {
-    configure(scalaCompileOptions.forkOptions) {
-        memoryMaximumSize = '1g'
-            jvmArgs = ['-XX:MaxPermSize=1024m']
-    }
 }
 
 // Activating the Zinc based compiler
